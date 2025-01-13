@@ -10,7 +10,7 @@ export class AuthService {
         this.userRepository = new UserRepository();
     }
 
-    async register(email: string, password: string): CommonServiceResponse<{ id: number; email: string }> {
+    public async register(email: string, password: string): CommonServiceResponse<{ id: number; email: string }> {
         const { payload: existingUser } = await this.userRepository.findUserByEmail(email);
 
         if (existingUser !== null && existingUser !== undefined) {
@@ -27,7 +27,7 @@ export class AuthService {
         return { payload };
     }
 
-    async login(email: string, password: string): CommonServiceResponse<{ id: number; email: string }> {
+    public async login(email: string, password: string): CommonServiceResponse<{ id: number; email: string }> {
         const { error, payload: user } = await this.userRepository.findUserByEmail(email);
 
         if (error) {
@@ -41,7 +41,7 @@ export class AuthService {
         return { payload: { id: user.id, email: user.email } };
     }
 
-    async changePassword(email: string, oldPassword: string, newPassword: string): CommonServiceResponse<null> {
+    public async changePassword(email: string, oldPassword: string, newPassword: string): CommonServiceResponse<null> {
         const { error, payload: user } = await this.userRepository.findUserByEmail(email);
 
         if (error) {

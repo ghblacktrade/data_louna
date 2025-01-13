@@ -1,15 +1,7 @@
-import {
-    RawPriceItem
-} from "@src/services/types/types";
-import {
-    CommonAsyncUtilResponse
-} from "@src/common/types/commonUtilResponse.type";
-import {
-    PriceItem
-} from "@src/services/types/interfaces";
-import {
-    ERRORS
-} from "@src/services/constants/errors";
+import { RawPriceItem } from "../../types/types";
+import { CommonAsyncUtilResponse } from "../../../common/types/commonUtilResponse.type";
+import { PriceItem } from "../../types/interfaces";
+import { ERRORS } from "../../constants/errors";
 
 export async function combinePricesUtil(
     tradableItems: RawPriceItem[],
